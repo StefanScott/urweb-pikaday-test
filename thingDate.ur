@@ -10,7 +10,7 @@ fun add_thing r =
       Date
     ) 
     VALUES (
-      "foo",
+      {[r.NameField]},
       {[readError ( r.DateField ^ " 12:00:00") ]}
     )
   )
@@ -37,6 +37,7 @@ fun main () =
       </head>
       <body onload={PikadayControl.init date_nid}>
         <form>
+          <textbox{#NameField} />
           <textbox{#DateField} id={date_nid}/>
           <submit action={add_thing} value="Add !"/>
         </form>
